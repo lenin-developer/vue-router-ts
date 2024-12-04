@@ -1,0 +1,13 @@
+body {
+  margin: 0px;
+  background-color: rgb(2, 23, 15);
+  color: aliceblue;
+}
+
+div {
+  padding: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
