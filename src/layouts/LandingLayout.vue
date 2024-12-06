@@ -62,7 +62,7 @@ const exits = () => {
 }
 
 .menu {
-    &>a {
+    :where(& > a) {
         color: aliceblue;
         padding-right: 10px;
         padding-left: 10px;

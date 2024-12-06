@@ -30,7 +30,7 @@
 
     background-color: rgb(57, 104, 88);
 
-    &>h1 {
+    :where(& > h1) {
         font-weight: 800;
     }
 }
@@ -45,8 +45,9 @@
     display: flex;
     gap: 16px;
 
-    &>a {
+    :where(& > a) {
         color: aliceblue;
+        text-decoration: none;
     }
 }
 

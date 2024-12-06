@@ -11,3 +11,8 @@ div {
 * {
   box-sizing: border-box;
 }
+
+.router-link-exact-active {
+  font-weight: 900;
+  text-decoration: underline;
+}
