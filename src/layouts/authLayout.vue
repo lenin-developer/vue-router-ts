@@ -4,7 +4,7 @@
             <h1>!Bienvenido!</h1>
         </div>
         <div class="layout-auth__auth">
-            <div>
+            <div class="auth__menu">
                 <RouterLink :to="{ name: 'login' }">login</RouterLink>
                 <RouterLink :to="{ name: 'register' }">register</RouterLink>
             </div>
@@ -15,7 +15,7 @@
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .layout-auth {
     height: inherit;
     width: inherit;
@@ -39,6 +39,15 @@
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
+}
+
+.auth__menu {
+    display: flex;
+    gap: 16px;
+
+    &>a {
+        color: aliceblue;
+    }
 }
 
 .auth__conten {
