@@ -14,9 +14,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const login = () => {
-    router?.replace({
-        name: 'home'
-    })
+    localStorage.setItem('isLogin', 'true')
+    router?.replace({ name: 'home' })
 }
 
 
