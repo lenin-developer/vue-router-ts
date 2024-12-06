@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+
+
+const exits = () => {
+    localStorage.removeItem('isLogin');
+}
+
 </script>
 
 
@@ -17,7 +23,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 <RouterLink :to="{ name: 'feature' }"> Features </RouterLink>
                 <RouterLink :to="{ name: 'pricin' }"> Pricing </RouterLink>
                 <RouterLink :to="{ name: 'pokemon', params: { id: 1 } }"> Pokemons </RouterLink>
-                <RouterLink :to="{ name: 'login' }"> salir </RouterLink>
+                <RouterLink :to="{ name: 'login' }" @click="exits"> salir </RouterLink>
             </nav>
         </header>
         <!-- Fin Header -->
