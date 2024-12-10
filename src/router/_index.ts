@@ -29,7 +29,7 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+export const gaurds = (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
   const isLoggedIn = localStorage.getItem('isLogin')
 
   if (to.meta.requiresAuth && isLoggedIn) {
@@ -41,6 +41,12 @@ router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized) =
       name: 'login',
     }
   }
-})
+
+  if (to.meta.requiresAuth == false) {
+    return true
+  }
+}
+
+router.beforeEach(gaurds)
 
 export default router
