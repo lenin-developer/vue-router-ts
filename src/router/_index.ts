@@ -5,6 +5,16 @@ import { authRouters } from './auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    } else {
+      return { left: 0, top: 0, behavior: 'smooth' }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -21,6 +31,7 @@ const router = createRouter({
       children: [...authRouters],
     },
     {
+      // esto es para cuando se ingresa una url que no existe
       path: '/:pathMatch(.*)*',
       name: '404',
       meta: { requiresAuth: false },
@@ -29,7 +40,7 @@ const router = createRouter({
   ],
 })
 
-export const gaurds = (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+export const gaurds = (to: RouteLocationNormalized) => {
   const isLoggedIn = localStorage.getItem('isLogin')
 
   if (to.meta.requiresAuth && isLoggedIn) {
