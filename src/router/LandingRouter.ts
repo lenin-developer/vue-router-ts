@@ -18,13 +18,31 @@ export const landingRouters: RouteRecordRaw[] = [
     path: '/feature',
     name: 'feature',
     meta: { requiresAuth: true },
-    component: () => import('../views/Landing/FeatureView.vue'),
+    component: () => import('@/views/Landing/FeatureView.vue'),
   },
   {
     path: '/pricin',
     name: 'pricin',
     meta: { requiresAuth: true },
-    component: () => import('../views/Landing/PrincingView.vue'),
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'men',
+        name: 'men',
+        meta: { transition: 'slide-right' },
+        component: () => import('@/components/MenView.vue'),
+      },
+      {
+        // UserPosts will be rendered inside User's <router-view>
+        // when /user/:id/posts is matched
+        path: 'woman',
+        name: 'woman',
+        meta: { transition: 'slide-left' },
+        component: () => import('@/components/WomanView.vue'),
+      },
+    ],
+    component: () => import('@/views/Landing/PrincingView.vue'),
   },
   {
     path: '/pokemon/:id',
