@@ -16,3 +16,10 @@ div {
   font-weight: 900;
   text-decoration: underline;
 }
+
+a {
+  color: aliceblue;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+}
